@@ -43,9 +43,9 @@ export function Footer() {
     name: 'Politique de Confidentialité',
     href: '#'
   }];
-  return <footer className="bg-gray-900 text-white pt-16 pb-8">
+  return <footer className="bg-gray-900 text-white py-8">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+        {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
           <div>
             <h3 className="text-xl font-bold mb-6">ElevarIT</h3>
             <p className="text-gray-400 mb-6">
@@ -106,14 +106,14 @@ export function Footer() {
               </button>
             </form>
           </div>
-        </div>
+        </div> */}
         <div className="border-t border-gray-800 pt-8 mt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm mb-4 md:mb-0">
               &copy; {new Date().getFullYear()} ElevarIT.{' '}
               {language === 'en' ? 'All rights reserved.' : 'Tous droits réservés.'}
             </p>
-            <div className="flex space-x-6">
+            {/* <div className="flex space-x-6">
               <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
                 {language === 'en' ? 'Terms of Service' : "Conditions d'Utilisation"}
               </a>
@@ -123,7 +123,7 @@ export function Footer() {
               <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
                 {language === 'en' ? 'Cookie Policy' : 'Politique des Cookies'}
               </a>
-            </div>
+            </div> */}
           </div>
         </div>
       </div>

@@ -19,7 +19,7 @@ export function Navbar() {
   }, []);
 
   // Pages where the transparent → scroll behavior should apply
-  const dynamicPages = ['/', '/services'];
+  const dynamicPages = ['/',];
   const isDynamicPage = dynamicPages.includes(location.pathname);
 
   // Determine if navbar should be transparent or white
@@ -28,6 +28,15 @@ export function Navbar() {
   const navbarBg = showTransparent ? 'bg-transparent' : 'bg-white shadow-md';
   const textColor = showTransparent ? 'text-gray-200' : 'text-gray-700';
   const logoRightColor = showTransparent ? 'text-gray-100' : 'text-gray-900';
+
+  // 🔹 Link data
+  const links = [
+    { href: '/', en: 'Home', fr: 'Acceuil' },
+    { href: '/services', en: 'Services', fr: 'Services' },
+    // { href: '/portfolio', en: 'Work', fr: 'Projets' },
+    // { href: '/blog', en: 'Testimonials', fr: 'Témoignages' },
+    { href: '/contact', en: 'Contact', fr: 'Contact' },
+  ];
 
   return (
     <header className={`fixed w-full z-50 transition-all duration-300 ${navbarBg} ${showTransparent ? 'py-5' : 'py-3'}`}>
@@ -40,21 +49,22 @@ export function Navbar() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
-            {[
-              { href: '/', en: 'Home', fr: 'Acceuil' },
-              { href: '/services', en: 'Services', fr: 'Services' },
-              { href: '/portfolio', en: 'Work', fr: 'Projets' },
-              { href: '/blog', en: 'Testimonials', fr: 'Témoignages' },
-              { href: '/contact', en: 'Contact', fr: 'Contact' },
-            ].map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className={`${textColor} hover:text-tealCustom font-medium transition-colors`}
-              >
-                {language === 'en' ? link.en : link.fr}
-              </a>
-            ))}
+            {links.map((link) => {
+              const isActive = location.pathname === link.href; // check active page
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={`${
+                    isActive
+                      ? 'text-tealCustom'
+                      : `${textColor} hover:text-tealCustom`
+                  } font-medium transition-colors`}
+                >
+                  {language === 'en' ? link.en : link.fr}
+                </a>
+              );
+            })}
           </nav>
 
           {/* Language toggle */}
@@ -91,22 +101,21 @@ export function Navbar() {
       {isOpen && (
         <div className="md:hidden fixed top-[64px] left-0 right-0 bottom-0 bg-white z-40 overflow-y-auto font-tamoha">
           <div className="px-6 py-8 flex flex-col space-y-6">
-            {[
-              { href: '/', en: 'Home', fr: 'Acceuil' },
-              { href: '/services', en: 'Services', fr: 'Services' },
-              { href: '/portfolio', en: 'Work', fr: 'Projets' },
-              { href: '/blog', en: 'Blog', fr: 'Blog' },
-              { href: '/contact', en: 'Contact', fr: 'Contact' },
-            ].map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="text-gray-700 hover:text-tealCustom font-medium text-lg border-b-2 border-tealCustom"
-                onClick={() => setIsOpen(false)}
-              >
-                {language === 'en' ? link.en : link.fr}
-              </a>
-            ))}
+            {links.map((link) => {
+              const isActive = location.pathname === link.href;
+              return (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className={`${
+                    isActive ? 'text-tealCustom' : 'text-gray-700 hover:text-tealCustom'
+                  } font-medium text-lg border-b-2 border-tealCustom`}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {language === 'en' ? link.en : link.fr}
+                </a>
+              );
+            })}
           </div>
         </div>
       )}

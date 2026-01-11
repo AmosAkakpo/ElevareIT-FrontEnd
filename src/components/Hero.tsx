@@ -11,7 +11,7 @@ export function Hero() {
   {/* bg-gradient-to-r from-black via-purpleAccent to-tealCustom*/}
 
       {/* background effect  */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 pointer-events-none">
         {/* floating blobs */}
         <div className="absolute -top-32 -left-20 w-[400px] h-[400px] bg-purpleAccent/20 rounded-full blur-3xl animate-pulse"></div>
         <div className="absolute bottom-0 right-0 w-[350px] h-[350px] bg-tealCustom/20 rounded-full blur-3xl animate-pulse"></div>
@@ -19,6 +19,7 @@ export function Hero() {
         {/* subtle grid */}
         <div className="absolute inset-0 opacity-10 bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] bg-[size:40px_40px]"></div>
       </div>
+
 
       <div className="container mx-auto px-4 md:px-6">
         <div className="flex flex-col md:flex-row items-center">
@@ -48,7 +49,7 @@ export function Hero() {
                 {language === 'en' ? 'View Our Work' : 'Voir nos projets'}
               </a> */}
 
-              <a href="/portfolio" className="mt-20 group px-6 py-3 font-medium cursor-pointer relative font-normal hover:border hover:rounded-md hover:border-gray-300 flex items-center justify-center bg-transparent
+              {/* <a href="/portfolio" className="mt-20 group px-6 py-3 font-medium cursor-pointer relative font-normal hover:border hover:rounded-md hover:border-gray-300 flex items-center justify-center bg-transparent
                   text-gray-700 h-[50px] sm:h-auto w-full sm:w-[150px]  overflow-hidden   transition-allduration-100 ">
                 <span className="group-hover:w-full absolute left-0 h-full w-5  border-y border-l rounded-l-lg  border-gray-300 hover:border-none transition-all duration-500 ">
                 </span>
@@ -59,7 +60,7 @@ export function Hero() {
                 </span>
                 <span className="group-hover:w-full absolute right-0 h-full w-5  border-y border-r rounded-r-lg  border-gray-300 hover:border-none transition-all duration-500 ">
                 </span>
-              </a>
+              </a> */}
 
         
             </div>
@@ -79,6 +80,8 @@ export function Hero() {
             </div>
           </div>
         </div>
+
+        {/* trusted company section to rework */}
         {/* <div className="mt-20 md:mt-32">
           <p className="text-center text-gray-500 mb-8">
             {language === 'en' ? 'Trusted by innovative companies' : 'Approuvé par des entreprises innovantes'}
@@ -89,6 +92,8 @@ export function Hero() {
                 </div>)}
           </div>
         </div> */}
+
       </div>
+      
     </section>;
 }
