@@ -3,18 +3,16 @@ import { Hero } from '../components/Hero'
 import { Testimonials } from '../components/Testimonials'
 import { Process } from '../components/Process'
 import { AboutUs } from '../components/AboutUs'
-import {Faq} from '../components/Faq'
+import { Faq } from '../components/Faq'
 
-import Typewriter from '../components/Typewriter'
 function Home() {
   return (
     <>
       <Hero />
-      <AboutUs /> 
+      <AboutUs />
       <Process />
-      {/* <Testimonials /> */}
-      <Faq/>
-      
+      <Testimonials />
+      <Faq />
     </>
   )
 }
